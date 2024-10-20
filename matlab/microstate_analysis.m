@@ -1,10 +1,15 @@
-% microstate analysis (including mstsa) on sleep data 
+% microstate analysis (including mstsa) on sleep data
+
+% delete workspace
 clear all
 close all
 clc
+% make sure we get the correct relative paths, starting in the folder 
+% of this script
+cd(fileparts(matlab.desktop.editor.getActiveFilename))
 
 % results directory
-SavePath = 'C:\Users\z3528600\OneDrive - UNSW\data\eeg\sleep_set\results';
+SavePath = '.\results';
 if ~exist(SavePath, 'dir')
     mkdir(SavePath)
 end
@@ -45,7 +50,7 @@ eeglab
 % collect files
 sleep_stages = {'W', 'N3'};
 nGroups = length(sleep_stages);
-data_dir = 'C:\Users\z3528600\OneDrive - UNSW\data\eeg\sleep_set';
+data_dir = '..\data';
 
 AllSubjects = [];
 for Group = 1:nGroups
